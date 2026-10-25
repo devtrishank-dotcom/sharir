@@ -7,9 +7,25 @@
 <meta name="theme-color" content="#0b0b0f" />
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="stylesheet" href="styles.css" />
+<style>
+  .del-form { display: flex; flex-direction: column; gap: 14px; margin: 18px 0; }
+  .del-form label { color: var(--muted); font-size: 14px; font-weight: 600; display: block; margin-bottom: 6px; }
+  .del-form input {
+    width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px;
+    color: var(--text); padding: 13px 16px; font-size: 15px; outline: none;
+  }
+  .del-form input:focus { border-color: var(--brand2); }
+  .del-btn {
+    width: 100%; background: var(--red); color: #fff; font-weight: 800; font-size: 16px;
+    border: none; border-radius: 12px; padding: 15px; cursor: pointer; margin-top: 4px;
+  }
+  .del-btn:disabled { opacity: 0.55; cursor: wait; }
+  .del-msg { border-radius: 10px; padding: 14px 16px; font-size: 14.5px; display: none; line-height: 1.6; }
+  .del-msg.err { display: block; background: rgba(239,68,68,.12); border: 1px solid rgba(239,68,68,.4); color: #fca5a5; }
+  .del-msg.ok { display: block; background: rgba(16,185,129,.12); border: 1px solid rgba(16,185,129,.4); color: #6ee7b7; }
+</style>
 </head>
 <body>
-<div class="scroll-progress"></div>
 
 <nav>
   <div class="wrap nav-inner">
@@ -28,22 +44,38 @@
   </div>
 </nav>
 
-<div class="wrap legal" style="max-width:560px">
-  <h1>SHARIR — Account Deletion</h1>
-  <div class="updated">Delete your account and all associated data</div>
+<div class="wrap legal" style="max-width:600px">
+  <h1>SHARIR — Delete Your Account</h1>
+  <div class="updated">Instant deletion · takes 30 seconds</div>
 
-  <p>We are sorry to see you go. You can request deletion of your SHARIR account and all associated data at any time.</p>
+  <p>Enter your <b>registered mobile number</b> and <b>PIN/password</b> below to permanently delete your SHARIR account and all associated data.</p>
 
-  <div class="box">
-    <b>Steps to delete your account:</b><br />
-    1. Send an email to <a href="mailto:support@sharirapp.com">support@sharirapp.com</a><br />
-    2. Subject: "Delete my account"<br />
-    3. Include your <b>registered mobile number</b> in the email
+  <div class="box del-form" id="delBox">
+    <div>
+      <label for="phone">Registered mobile number</label>
+      <input id="phone" type="tel" placeholder="e.g. 9876543210" maxlength="12" inputmode="numeric" autocomplete="off" />
+    </div>
+    <div>
+      <label for="pin">PIN / Password</label>
+      <input id="pin" type="password" placeholder="Your PIN or password" maxlength="32" />
+    </div>
+    <div>
+      <label for="confirm">Type <b style="color:var(--red)">DELETE</b> to confirm</label>
+      <input id="confirm" type="text" placeholder="DELETE" maxlength="10" autocomplete="off" />
+    </div>
+    <button class="del-btn" id="delBtn" onclick="doDelete()">Permanently delete my account</button>
+    <div class="del-msg" id="delMsg"></div>
   </div>
 
-  <p>We will delete your account and all associated data — profile details, workouts, meals, weight logs and plans — within <b>7 days</b> of receiving your request. No data is retained afterwards.</p>
+  <p>This removes <b>everything instantly</b>: your profile, workouts, meals, weight logs, measurements, plans and support messages. <b>This cannot be undone.</b></p>
 
-  <p style="color:var(--muted2); font-size:14px">Using the app? The fastest way is Settings → Delete My Account — it deletes everything instantly.</p>
+  <h2>Other ways to delete</h2>
+  <ul>
+    <li><b>In the app:</b> Settings → Delete My Account (same instant deletion).</li>
+    <li><b>By email:</b> send an email to <a href="mailto:support@sharirapp.com">support@sharirapp.com</a> with the subject "Delete my account" and your registered mobile number — we delete it within 7 days.</li>
+  </ul>
+
+  <p style="color:var(--muted2); font-size:14px">Trouble deleting (lost PIN)? Email us at the address above — we'll verify your identity and delete your account.</p>
 </div>
 
 <footer>
@@ -53,6 +85,54 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+// Production API. For local testing append ?api=http://localhost:8000 to this page's URL.
+var API_BASE = "https://api.sharirapp.com";
+try {
+  var override = new URLSearchParams(window.location.search).get("api");
+  if (override) API_BASE = override.replace(/\/+$/, "");
+} catch (e) {}
+
+async function doDelete() {
+  var phone = document.getElementById("phone").value.trim();
+  var pin = document.getElementById("pin").value;
+  var confirm = document.getElementById("confirm").value.trim();
+  var btn = document.getElementById("delBtn");
+  var msg = document.getElementById("delMsg");
+
+  msg.className = "del-msg";
+  msg.style.display = "none";
+  if (!phone || phone.replace(/\D/g, "").length < 10) return showErr("Please enter your registered mobile number.");
+  if (!pin) return showErr("Please enter your PIN or password.");
+  if (confirm.toUpperCase() !== "DELETE") return showErr("Please type DELETE in the confirmation box.");
+
+  btn.disabled = true;
+  btn.textContent = "Deleting…";
+  try {
+    var res = await fetch(API_BASE + "/api/account/delete-web", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ phone: phone, pin: pin, confirm: confirm })
+    });
+    var data = {};
+    try { data = await res.json(); } catch (e) {}
+    if (res.ok && data.ok) {
+      msg.className = "del-msg ok";
+      msg.innerHTML = "✅ <b>Your account has been deleted.</b><br/>All your data has been permanently removed. Goodbye — and thank you for trying SHARIR. 💙";
+      document.getElementById("delBox").style.display = "none";
+    } else {
+      var detail = (data && data.detail) ? String(data.detail).replace(/^401\s*/, "").replace(/^4\d\d\s*/, "") : "Something went wrong. Please try again.";
+      showErr(detail);
+    }
+  } catch (e) {
+    showErr("Could not reach the SHARIR server. Check your internet connection and try again.");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = "Permanently delete my account";
+  }
+
+  function showErr(t) { msg.className = "del-msg err"; msg.textContent = t; }
+}
+</script>
 </body>
 </html>
