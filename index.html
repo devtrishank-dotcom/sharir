@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SHARIR — Your Personal Fitness Coach | Workout & Diet Plans</title>
+<meta name="description" content="SHARIR is your personal fitness coach: 12-week workout and diet plans, meal photo tracking, workout logging and progress tracking. 100% free, no ads." />
+<meta name="theme-color" content="#0b0b0f" />
+<meta property="og:title" content="SHARIR — Your Personal Fitness Coach" />
+<meta property="og:description" content="Personalised 12-week workout & diet plans, meal scanning and progress tracking. Free, no ads." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="scroll-progress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo.png" alt="SHARIR logo" />
+      SHARIR<span>.</span>
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="features.html">Features</a>
+      <a href="about.html">About</a>
+      <a href="index.html#faq">FAQ</a>
+    </div>
+    <a class="nav-cta" href="#download">Get the app</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="wrap hero-grid hero-center">
+    <div class="hero-copy">
+      <div class="pill">🇮🇳 India's smartest fitness coach</div>
+      <h1>Stop guessing.<br /><span class="accent">Start transforming.</span></h1>
+      <p class="lead" style="margin-left:auto; margin-right:auto">
+        Your complete 12-week workout &amp; diet plan — built around your body and your food.
+        Scan a meal, log every set, watch the evidence pile up. Free forever.
+      </p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#download">⬇ Get SHARIR free</a>
+        <a class="btn btn-ghost" href="features.html">Explore features →</a>
+      </div>
+    </div>
+
+    <div class="hero-phones">
+      <!-- Phone 1: Home screen -->
+      <div class="tilt-wrap p1-wrap">
+      <div class="phone tilt">
+        <div class="screen">
+          <div class="app-status"><span>9:41</span><span>▮▮▮ ⌁ 100%</span></div>
+          <div>
+            <div class="app-title">Home</div>
+            <div class="app-sub">Good evening, Rahul 👋</div>
+          </div>
+          <div class="app-card streak-card">
+            <div class="app-row">
+              <span class="flame">🔥</span>
+              <div class="grow">
+                <b>5-day streak</b>
+                <span>Don't break the chain — log today!</span>
+              </div>
+            </div>
+          </div>
+          <div class="tiles">
+            <div class="tile"><b class="t-blue">1840</b><span>cal</span></div>
+            <div class="tile"><b class="t-green">142g</b><span>protein</span></div>
+            <div class="tile"><b class="t-amber">210g</b><span>carbs</span></div>
+            <div class="tile"><b class="t-red">52g</b><span>fat</span></div>
+          </div>
+          <div class="app-card">
+            <div class="app-row">
+              <div class="ex-thumb">🏋️</div>
+              <div class="grow">
+                <div class="ex-name">Push Day — Week 3</div>
+                <div class="ex-meta">5 exercises · ~55 min</div>
+              </div>
+              <span class="app-btn">▶ Start</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Phone 2: Snap a Meal -->
+      <div class="tilt-wrap p2-wrap">
+      <div class="phone tilt">
+        <div class="screen">
+          <div class="app-status"><span>9:41</span><span>▮▮▮ ⌁ 100%</span></div>
+          <div>
+            <div class="app-title">Snap a Meal</div>
+            <div class="app-sub">Instant nutrition analysis</div>
+          </div>
+          <div class="camera">
+            <div class="viewfinder"><i></i><i></i><i></i><i></i></div>
+            <div class="scan-label">📸 Point at your food</div>
+          </div>
+          <div class="app-card">
+            <div class="app-tag">DETECTED</div>
+            <div class="ex-name" style="margin-top:4px">Paneer Bhurji + 2 Rotis</div>
+            <div class="food-item"><b>Paneer Bhurji (150g)</b><span>320 cal · 24P</span></div>
+            <div class="food-item"><b>Roti × 2</b><span>210 cal · 6P</span></div>
+            <div class="food-item"><b>Total</b><span>530 cal · 30P 58C 18F</span></div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <!-- Phone 3: Progress -->
+      <div class="tilt-wrap p3-wrap">
+      <div class="phone tilt">
+        <div class="screen">
+          <div class="app-status"><span>9:41</span><span>▮▮▮ ⌁ 100%</span></div>
+          <div>
+            <div class="app-title">Progress</div>
+            <div class="app-sub">Weight · 12 weeks</div>
+          </div>
+          <div class="app-card">
+            <div class="bars">
+              <i style="height:34%"></i><i style="height:40%"></i><i style="height:37%"></i>
+              <i style="height:48%"></i><i style="height:56%"></i><i style="height:66%"></i>
+              <i class="hi" style="height:80%"></i>
+            </div>
+            <div class="bar-labels">
+              <span>W1</span><span>W3</span><span>W5</span><span>W7</span><span>W9</span><span>W11</span><span>Now</span>
+            </div>
+          </div>
+          <div class="big-stat">
+            <div class="app-card"><b class="t-green">−6.4 kg</b><span>weight change</span></div>
+            <div class="app-card"><b class="t-blue">36</b><span>workouts done</span></div>
+          </div>
+          <div class="app-card">
+            <div class="app-row">
+              <span style="font-size:22px">🏋️</span>
+              <div class="grow">
+                <div class="ex-name">Weekly volume</div>
+                <div class="ex-meta">24,850 kg lifted this week</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Personal 12-week plans</span><span>Free forever</span><span>No ads</span><span>Meal photo scanning</span><span>Indian food database</span><span>Veg &amp; vegan</span><span>Progress tracking</span><span>Streak Insurance ❄️</span><span>Streaks</span>
+    <span>Personal 12-week plans</span><span>Free forever</span><span>No ads</span><span>Meal photo scanning</span><span>Indian food database</span><span>Veg &amp; vegan</span><span>Progress tracking</span><span>Streak Insurance ❄️</span><span>Streaks</span>
+  </div>
+</div>
+
+<!-- ================= STATS ================= -->
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b data-count="12" data-suffix="">12</b><span>weeks — your complete transformation plan</span></div>
+    <div class="stat"><b data-count="50" data-suffix="+">50+</b><span>exercises with how-to media</span></div>
+    <div class="stat"><b data-count="100" data-suffix="%">100%</b><span>free — no ads, no subscription</span></div>
+    <div class="stat"><b>🇮🇳</b><span>Indian food &amp; veg / vegan diets</span></div>
+  </div>
+</div>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How it works</div>
+      <h2>From signup to transformation in <span class="accent">3 steps</span></h2>
+      <p>No spreadsheets, no guesswork. Your coach does the planning — you do the lifting.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Tell SHARIR about you</h3>
+        <p>Age, height, weight, goal (fat loss / muscle gain / fitness), activity level and diet preference — veg, non-veg or vegan. Takes 2 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Get your 12-week plan</h3>
+        <p>Your coach builds a personalised workout split + daily diet plan with Indian foods, weekly calorie targets and progression notes for all 12 weeks.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Track. Scan. Progress.</h3>
+        <p>Log sets &amp; weights in the gym, snap your meals for instant nutrition analysis, and watch your streak, volume and weight trends grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURE: WORKOUT ================= -->
+<section class="section" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="wrap feature-split">
+    <div class="f-copy">
+      <div class="kicker">Training</div>
+      <h2>A 12-week plan that <span class="accent">adapts to you</span></h2>
+      <p>Your plan is built around your TDEE, goal and schedule — 5 training days + 2 recovery days, progressing every single week.</p>
+      <ul class="f-points">
+        <li>Set-by-set logging with reps, weight and rest timer</li>
+        <li>Weekly progression built in — sets &amp; intensity go up as you go</li>
+        <li>50+ exercise library with images and video links</li>
+        <li>Start any day's workout in one tap — from your plan or empty</li>
+      </ul>
+    </div>
+    <div style="display:flex; justify-content:center;">
+      <!-- Phone: Train screen -->
+      <div class="phone">
+        <div class="screen">
+          <div class="app-status"><span>9:41</span><span>▮▮▮ ⌁ 100%</span></div>
+          <div>
+            <div class="app-title">Train</div>
+            <div class="app-sub">Week 3 of 12 · Fat Loss</div>
+          </div>
+          <div class="day-chips">
+            <span class="chip">1</span><span class="chip">2</span><span class="chip on">3</span><span class="chip">4</span><span class="chip">5</span><span class="chip">6</span><span class="chip">7</span><span class="chip">8</span>
+          </div>
+          <div class="app-card">
+            <div class="app-row" style="margin-bottom:8px">
+              <div class="grow">
+                <div class="app-tag" style="color:var(--muted2)">MONDAY</div>
+                <div class="ex-name" style="font-size:15px">Push Day</div>
+              </div>
+              <span class="app-btn">▶ Start</span>
+            </div>
+            <div class="ex-row"><div class="ex-thumb">🏋️</div><div class="grow"><div class="ex-name">Bench Press</div><div class="ex-meta">4 × 8 · 60s rest</div></div></div>
+            <div class="ex-row"><div class="ex-thumb">💪</div><div class="grow"><div class="ex-name">Incline DB Press</div><div class="ex-meta">3 × 10 · 60s rest</div></div></div>
+            <div class="ex-row"><div class="ex-thumb">🪢</div><div class="grow"><div class="ex-name">Cable Fly</div><div class="ex-meta">3 × 12 · 45s rest</div></div></div>
+          </div>
+          <div class="app-card" style="text-align:center">
+            <div class="app-tag">WEEK 3 NOTE</div>
+            <div class="ex-meta" style="margin-top:4px">Add 1 set to compound lifts. Push close to failure.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURE: MEALS ================= -->
+<section class="section">
+  <div class="wrap feature-split reverse">
+    <div style="display:flex; justify-content:center;">
+      <!-- Phone: Diet plan -->
+      <div class="phone">
+        <div class="screen">
+          <div class="app-status"><span>9:41</span><span>▮▮▮ ⌁ 100%</span></div>
+          <div>
+            <div class="app-title">Meals</div>
+            <div class="app-sub">Week 3 · 2,000 cal/day target</div>
+          </div>
+          <div class="app-card" style="text-align:center">
+            <div class="ex-name" style="font-size:24px; font-weight:900">2,000<span style="font-size:11px; color:var(--muted2)"> cal/day</span></div>
+            <div class="tiles" style="margin-top:8px">
+              <div class="tile"><b class="t-green">150g</b><span>P</span></div>
+              <div class="tile"><b class="t-amber">230g</b><span>C</span></div>
+              <div class="tile"><b class="t-red">60g</b><span>F</span></div>
+            </div>
+          </div>
+          <div class="app-card">
+            <div class="app-tag" style="color:var(--muted2)">TUESDAY · LUNCH</div>
+            <div class="ex-name" style="margin-top:4px">Paneer Bhurji + Roti + Dal</div>
+            <div class="ex-meta">~520 cal · 38P 56C 16F</div>
+          </div>
+          <div class="app-card">
+            <div class="app-tag" style="color:var(--muted2)">SNACK</div>
+            <div class="ex-name" style="margin-top:4px">Greek Yogurt + Almonds</div>
+            <div class="ex-meta">~280 cal · 18P 12C 16F</div>
+          </div>
+          <div class="app-card">
+            <div class="app-row">
+              <span style="font-size:20px">📸</span>
+              <div class="grow"><div class="ex-name">Snap a Meal</div><div class="ex-meta">Auto-detect foods &amp; macros</div></div>
+              <span class="app-btn green">Scan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="f-copy">
+      <div class="kicker">Nutrition</div>
+      <h2>Eat Indian. <span class="green">Hit your macros.</span></h2>
+      <p>Diet plans built from real Indian foods — paneer, dal, roti, rajma, chicken, fish — matched to your goal and adjusted week by week.</p>
+      <ul class="f-points">
+        <li>Veg, non-veg and vegan preferences respected strictly</li>
+        <li>4 meals a day with calories, protein, carbs &amp; fat per meal</li>
+        <li>Snap any meal photo — the foods and macros are detected instantly</li>
+        <li>Daily totals vs your goals, tracked automatically</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURE: PROGRESS ================= -->
+<section class="section" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="wrap feature-split">
+    <div class="f-copy">
+      <div class="kicker">Progress</div>
+      <h2>Proof, not <span class="accent">vibes</span></h2>
+      <p>Every log feeds your dashboard: streaks, weekly volume, weight trend and workout history — so you always know it's working.</p>
+      <ul class="f-points">
+        <li>Streaks that keep you showing up every day</li>
+        <li>Weight log with trend chart over the full 12 weeks</li>
+        <li>Weekly training volume — see yourself getting stronger</li>
+        <li>Daily reminder notifications if you haven't logged (optional)</li>
+      </ul>
+    </div>
+    <div style="display:flex; justify-content:center;">
+      <!-- Phone: Progress screen -->
+      <div class="phone">
+        <div class="screen">
+          <div class="app-status"><span>9:41</span><span>▮▮▮ ⌁ 100%</span></div>
+          <div>
+            <div class="app-title">Progress</div>
+            <div class="app-sub">Your 12-week journey</div>
+          </div>
+          <div class="app-card">
+            <div class="app-tag" style="color:var(--muted2)">WEIGHT TREND</div>
+            <div class="bars" style="margin-top:6px">
+              <i style="height:30%"></i><i style="height:36%"></i><i style="height:44%"></i>
+              <i style="height:52%"></i><i style="height:60%"></i><i style="height:70%"></i><i class="hi" style="height:84%"></i>
+            </div>
+            <div class="bar-labels"><span>W1</span><span>W3</span><span>W5</span><span>W7</span><span>W9</span><span>W11</span><span>W12</span></div>
+          </div>
+          <div class="big-stat">
+            <div class="app-card"><b class="t-green">🔥 12</b><span>day streak</span></div>
+            <div class="app-card"><b class="t-blue">36</b><span>workouts</span></div>
+            <div class="app-card"><b class="t-amber">128</b><span>meals logged</span></div>
+          </div>
+          <div class="app-card">
+            <div class="app-row">
+              <span style="font-size:20px">💪</span>
+              <div class="grow"><div class="ex-name">Total volume lifted</div><div class="ex-meta">1,82,400 kg across 12 weeks</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURE: STREAK INSURANCE (exclusive) ================= -->
+<section class="section">
+  <div class="wrap feature-split reverse">
+    <div style="display:flex; justify-content:center;">
+      <!-- Phone: streak insurance -->
+      <div class="phone">
+        <div class="screen">
+          <div class="app-status"><span>9:41</span><span>▮▮▮ ⌁ 100%</span></div>
+          <div>
+            <div class="app-title">Home</div>
+            <div class="app-sub">Good evening, Rahul 👋</div>
+          </div>
+          <div class="app-card streak-card">
+            <div class="app-row">
+              <span class="flame">🔥</span>
+              <div class="grow">
+                <b>5-day streak <span class="freeze-badge">❄️ 2 left</span></b>
+                <span>Streak Insurance active</span>
+              </div>
+            </div>
+          </div>
+          <div class="app-card">
+            <div class="app-row">
+              <span style="font-size:22px">❄️</span>
+              <div class="grow">
+                <div class="ex-name">Streak saved!</div>
+                <div class="ex-meta">Sunday was your rest day — 1 freeze used automatically.</div>
+              </div>
+            </div>
+          </div>
+          <div class="app-card">
+            <div class="app-tag">HOW TO EARN</div>
+            <div class="food-item"><b>7-day streak</b><span>+1 freeze</span></div>
+            <div class="food-item"><b>14-day streak</b><span>+1 freeze</span></div>
+            <div class="food-item"><b>Max stored</b><span>2 freezes</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="f-copy">
+      <div class="kicker">Only in SHARIR</div>
+      <h2>Streak Insurance<sup style="font-size:13px; color:var(--brand2)">❄️ EXCLUSIVE</sup></h2>
+      <p>Every app punishes you for missing a day. We get it — travel, exams, fever, life happens. In SHARIR, your streak has insurance.</p>
+      <ul class="f-points">
+        <li>Earn a Streak Freeze for every perfect week (7-day streak)</li>
+        <li>Miss a day? A freeze is used automatically — your streak survives</li>
+        <li>Store up to 2 freezes — your safety net for real life</li>
+        <li>No other fitness app in India protects your hard work like this</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY SHARIR ================= -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why SHARIR</div>
+      <h2>Most apps track. <span class="accent">SHARIR coaches.</span></h2>
+      <p>A complete coach — planning, logging, nutrition and motivation — without subscriptions, ads or data games.</p>
+    </div>
+    <div class="bento">
+      <div class="card b-wide"><div class="icon">🆓</div><h3>100% free, forever</h3><p>No subscription tiers, no locked features, no ads. Every plan, every scan, every chart — free. This is the whole point of SHARIR.</p></div>
+      <div class="card"><div class="icon">🧠</div><h3>Plans built around you</h3><p>Built for YOUR body, goal and food — not a generic PDF.</p></div>
+      <div class="card"><div class="icon">🇮🇳</div><h3>Made for India</h3><p>Indian foods, veg/vegan support, IST-day streaks.</p></div>
+      <div class="card b-wide"><div class="icon">🔒</div><h3>Privacy-first</h3><p>Login with just your mobile number + PIN. Meal photos analysed in real time and never stored. Delete all your data instantly, in-app, any time. Your body, your data — literally.</p></div>
+      <div class="card"><div class="icon">🔥</div><h3>Streaks that stick</h3><p>Daily streaks, weekly volume, gentle reminders.</p></div>
+      <div class="card"><div class="icon">⚡</div><h3>Simple &amp; fast</h3><p>Dark, clean UI. Log a set in 2 taps, scan a meal in 5 seconds.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMPARISON ================= -->
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Honest comparison</div>
+      <h2>SHARIR vs <span class="accent">typical fitness apps</span></h2>
+    </div>
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead>
+          <tr><th></th><th class="sharir-col">SHARIR</th><th>Subscription apps</th><th>Ad-free trackers</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Personalised 12-week plan (workout + diet)</td><td class="sharir-col yes">✓</td><td class="no">Paid tier</td><td class="no">✗</td></tr>
+          <tr><td>Meal photo → instant nutrition analysis</td><td class="sharir-col yes">✓</td><td class="no">Rarely</td><td class="no">✗</td></tr>
+          <tr><td>Indian food database (veg / vegan)</td><td class="sharir-col yes">✓</td><td class="no">Partial</td><td class="no">✗</td></tr>
+          <tr><td>No ads</td><td class="sharir-col yes">✓</td><td class="no">✓</td><td class="no">✓</td></tr>
+          <tr><td>No subscription / paywall</td><td class="sharir-col yes">✓</td><td class="no">✗</td><td class="no">✗</td></tr>
+          <tr><td>Instant in-app account &amp; data deletion</td><td class="sharir-col yes">✓</td><td class="no">Email support</td><td class="no">Varies</td></tr>
+          <tr><td>Price</td><td class="sharir-col yes">₹0 forever</td><td class="no">₹1,000+/year</td><td class="no">₹500+/year</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section class="section" id="reviews" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Early access</div>
+      <h2>What our beta users say</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"The meal scan is unreal. I snapped my maa's paneer sabzi and it got the macros almost exact. Logging food finally feels easy."</p>
+        <div class="who"><div class="avatar">R</div><div><b>Rahul M.</b><span>Beta user · Fat loss · −5.2 kg</span></div></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"I was paying ₹200/month for just a workout PDF. SHARIR built my full 12-week plan with progression — free. The streaks keep me honest."</p>
+        <div class="who"><div class="avatar">S</div><div><b>Sneha K.</b><span>Beta user · Muscle gain</span></div></div>
+      </div>
+      <div class="quote">
+        <div class="stars">★★★★★</div>
+        <p>"As a vegetarian I always got chicken-bro diet plans. This one actually builds around dal, paneer and roti. And no ads anywhere."</p>
+        <div class="who"><div class="avatar">A</div><div><b>Amit P.</b><span>Beta user · Fitness</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq" style="background:var(--surface); border-top:1px solid var(--border);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">FAQ</div>
+      <h2>Questions before you start?</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is SHARIR really free?</summary>
+        <p>Yes — 100% free with no ads and no subscription. All features: personal plans, meal scanning, tracking and progress, are included for everyone.</p>
+      </details>
+      <details>
+        <summary>How does the meal photo scan work?</summary>
+        <p>Take a photo of your food and SHARIR identifies the dishes, estimates portions and calculates calories, protein, carbs and fat. You can correct anything before saving. Photos are processed in real time and not stored on our servers.</p>
+      </details>
+      <details>
+        <summary>I'm a beginner / I train at home. Will it work for me?</summary>
+        <p>Yes. The plan adapts to your activity level and goal, includes bodyweight options in the exercise library, and every exercise has media so you know exactly how to perform it.</p>
+      </details>
+      <details>
+        <summary>Does it support vegetarian or vegan diets?</summary>
+        <p>Absolutely — veg, non-veg and vegan preferences are respected strictly. Plans are built from Indian foods like paneer, dal, rajma, tofu, roti, rice and more.</p>
+      </details>
+      <details>
+        <summary>What about my data and privacy?</summary>
+        <p>You log in with just your mobile number and a PIN. Your data is encrypted in transit (HTTPS), your PIN is stored only as a salted hash, and you can delete your account and ALL your data instantly from Settings → Delete My Account. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+      </details>
+      <details>
+        <summary>Which phones are supported?</summary>
+        <p>Android first (Google Play) — iOS is coming soon. The app is lightweight and works great even on older phones.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DOWNLOAD CTA ================= -->
+<section class="section" id="download">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Start your 12-week transformation <span class="accent">today</span></h2>
+      <p>Free forever. No ads. Your coach is waiting — all it needs is 2 minutes to know you.</p>
+      <div class="btn-row" style="justify-content:center">
+        <a class="btn btn-primary" href="#download">🤖 Get it on Google Play</a>
+        <a class="btn btn-ghost" href="features.html">See all features</a>
+      </div>
+      <div class="store-note">Launching on Google Play now · iPhone (App Store) coming soon</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <div class="foot-brand"><img src="assets/logo.png" alt="SHARIR logo" /> SHARIR<span style="color:var(--brand2)">.</span></div>
+      <p class="foot-desc">Your personal fitness coach. 12-week workout &amp; diet plans, meal photo analysis and progress tracking — built for India, free for everyone.</p>
+    </div>
+    <div>
+      <h4>Product</h4>
+      <a href="features.html">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#download">Download</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="about.html">About SHARIR</a>
+      <a href="about.html#contact">Contact &amp; Support</a>
+    </div>
+    <div>
+      <h4>Legal</h4>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="delete-account.html">Delete Account</a>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© 2026 SHARIR. Your body. Your data. Your command centre.</span>
+    <span>support@sharirapp.com</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
